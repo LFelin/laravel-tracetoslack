@@ -57,7 +57,7 @@ class TraceToSlack
 
 
     public function trace(Exception $e){
-        if(self::hasWebHookUrl()){
+        if(self::hasWebHookUrl() && self::notifyIsEnabled()){
             // Set infos error exception
             $this->exception_trace_message = $e->getTraceAsString();
             $this->exception_line = $e->getLine();
@@ -72,11 +72,9 @@ class TraceToSlack
     }
 
     public function notify(){
-        $r = Curl::to($this->webhook_url)
+        Curl::to($this->webhook_url)
             ->withData( ["payload" => json_encode($this->payload)] )
             ->post();
-
-        dd($r);
     }
 
 
@@ -119,6 +117,12 @@ class TraceToSlack
 
     public function hasWebHookUrl(){
         return (empty(config('tracetoslack.webhook_url')) ? false : true);
+    }
+
+    public function notifyIsEnabled(){
+        $app_debug = config('app.debug');
+        $active_on_debug = self::getTraceConfig('active_on_debug');
+        return ((!$app_debug || $active_on_debug) ? true : false);
     }
 
     public function getTraceConfig($key){

@@ -61,6 +61,17 @@ In your `config/tracetoslack` file configure the parameters. The parameter webho
 
         /*
          |--------------------------------------------------------------------------
+         | Notify on debug
+         |--------------------------------------------------------------------------
+         | Default: false
+         | The notifications are also sent if the debug mode is activated [true]
+         |
+         */
+
+        'active_on_debug' => false,
+
+        /*
+         |--------------------------------------------------------------------------
          | Your private Webhook URL
          |--------------------------------------------------------------------------
          | [Required]
