@@ -1,0 +1,22 @@
+{
+    "name": "lfelin/laravel-tracetoslack",
+    "description": "Send your traceback on a channel of slack",
+	"keywords": ["laravel", "traceback", "logs", "exceptions", "slack"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ludovic Felin",
+            "email": "felin.ludovic@gmail.com"
+        }
+    ],
+    "require": {
+		"php": ">=5.5.9",
+        "illuminate/support": "5.0.*|5.1.*|5.2.*",
+        "ixudra/curl": "6.*"
+	},
+	"autoload": {
+        "psr-4": {
+            "Lfelin\\TraceToSlack\\": "lfelin/laravel-tracetoslack/src/"
+        },
+    },
+}
