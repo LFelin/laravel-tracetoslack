@@ -1,8 +1,10 @@
 Laravel Trace to Slack
 ======================
-
+[![License](https://poser.pugx.org/lfelin/laravel-tracetoslack/license)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+[![Latest Stable Version](https://poser.pugx.org/lfelin/laravel-tracetoslack/v/stable)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+___
+## About
 Trace to slack is a simple package for laravel to notify the errors of your application in slack https://slack.com/
-
 
 ## Installation
 
@@ -38,11 +40,18 @@ In your `app/Exceptions/Handler.php` file:
 
 Replace
 
-*use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;*
+> ***use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;***
+
+
+----------
+
+
+----------
+
 
 by
 
-*use Lfelin\TraceToSlack\Handler as ExceptionHandler;*
+> ***use Lfelin\TraceToSlack\Handler as ExceptionHandler;***
 
 
 ## Configuration
@@ -137,3 +146,6 @@ In your `config/tracetoslack` file configure the parameters. The parameter webho
 Create a new webhook : https://my.slack.com/services/new/incoming-webhook/
 
 Documentation : https://api.slack.com/custom-integrations
+
+## Example on slack
+![example](https://cloud.githubusercontent.com/assets/271214/16535835/0f837698-3feb-11e6-92b2-e0bdf74b580a.png)
