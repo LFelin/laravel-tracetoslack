@@ -20,6 +20,11 @@ Pull this package in through Composer.
 
 ```
 
+Dump your autoload
+```
+composer dump-autoload -o
+```
+
 
 ### Laravel 5.* Integration
 
@@ -40,19 +45,16 @@ In your `app/Exceptions/Handler.php` file:
 
 Replace
 
-> ***use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;***
+```php
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+```
 
 
-----------
+**by**
 
-
-----------
-
-
-by
-
-> ***use Lfelin\TraceToSlack\Handler as ExceptionHandler;***
-
+```php
+use Lfelin\TraceToSlack\Handler as ExceptionHandler;
+```
 
 ## Configuration
 
@@ -62,7 +64,7 @@ Publish configuration
 php artisan vendor:publish
 ```
 
-In your `config/tracetoslack` file configure the parameters. The parameter webhook_url is required :
+In your `config/tracetoslack.php` file configure the parameters. The parameter webhook_url is required :
 
 ```php
 
