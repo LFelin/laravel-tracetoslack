@@ -2,6 +2,10 @@ Laravel Trace to Slack
 ======================
 [![License](https://poser.pugx.org/lfelin/laravel-tracetoslack/license)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
 [![Latest Stable Version](https://poser.pugx.org/lfelin/laravel-tracetoslack/v/stable)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+[![Total Downloads](https://poser.pugx.org/lfelin/laravel-tracetoslack/downloads)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+___
+
+#### **For Laravel 4.2, use the** [4.2 branch](https://github.com/LFelin/laravel-tracetoslack/tree/4.2)
 ___
 ## About
 Trace to slack is a simple package for laravel to notify the errors of your application in slack https://slack.com/
