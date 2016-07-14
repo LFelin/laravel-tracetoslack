@@ -9,7 +9,7 @@
   }],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": "5.0.*|5.1.*|5.2.*",
+    "illuminate/support": "5.*",
     "ixudra/curl": "6.*"
   },
   "autoload": {
