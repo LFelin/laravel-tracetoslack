@@ -18,7 +18,7 @@ Pull this package in through Composer.
 
     {
         "require": {
-            "lfelin/laravel-tracetoslack": "0.*"
+            "lfelin/laravel-tracetoslack": "1.*"
         }
     }
 
@@ -155,3 +155,6 @@ Documentation : https://api.slack.com/custom-integrations
 
 ## Example on slack
 ![example](https://cloud.githubusercontent.com/assets/271214/16535835/0f837698-3feb-11e6-92b2-e0bdf74b580a.png)
+
+## Suggestions and issues
+Use [github issues](https://github.com/LFelin/laravel-tracetoslack/issues/new) to suggest improvements or reassembling your problems
