@@ -29,7 +29,7 @@ return array(
      | Username
      |--------------------------------------------------------------------------
      | [Optional]
-     | Default: Jhon Bot
+     | Default: John Bot
      |
      */
 

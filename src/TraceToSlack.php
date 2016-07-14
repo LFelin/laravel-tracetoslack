@@ -1,6 +1,7 @@
 <?php namespace Lfelin\TraceToSlack;
 
 use Exception;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Ixudra\Curl\Facades\Curl;
 
@@ -88,7 +89,7 @@ class TraceToSlack
 
 
     public function constructPayload(){
-        $array_config = ['username'      => 'Jhon Bot',
+        $array_config = ['username'      => 'John Bot',
                          'icon_emoji'    => ':bug:',
                          'icon_url'      => null,
                          'other_channel' => null];
@@ -116,17 +117,17 @@ class TraceToSlack
     }
 
     public function hasWebHookUrl(){
-        return (empty(config('tracetoslack.webhook_url')) ? false : true);
+        return (empty(Config::get('tracetoslack::tracetoslack.webhook_url')) ? false : true);
     }
 
     public function notifyIsEnabled(){
-        $app_debug = config('app.debug');
+        $app_debug = Config::get('app.debug');
         $active_on_debug = self::getTraceConfig('active_on_debug');
         return ((!$app_debug || $active_on_debug) ? true : false);
     }
 
     public function getTraceConfig($key){
-        return config('tracetoslack.'.$key);
+        return Config::get('tracetoslack::tracetoslack.'.$key);
     }
 
 

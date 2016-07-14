@@ -18,7 +18,9 @@ class TraceToSlackServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(){}
+    public function boot(){
+        $this->package("lfelin/laravel-tracetoslack");
+    }
 
     /**
      * Register the application services.
@@ -28,9 +30,7 @@ class TraceToSlackServiceProvider extends ServiceProvider
     public function register()
     {
         // Config
-        $this->publishes([
-            __DIR__.'/../config/tracetoslack.php' => config_path('tracetoslack.php'),
-        ]);
+        $this->app['config']->package('lfelin/laravel-tracetoslack', __DIR__.'/config', 'tracetoslack');
 
         // Register
         $this->app['TraceToSlack'] = $this->app->share(
