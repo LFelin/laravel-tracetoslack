@@ -1,7 +1,11 @@
-Laravel Trace to Slack
+Laravel Trace to Slack for Laravel 4.2
 ======================
 [![License](https://poser.pugx.org/lfelin/laravel-tracetoslack/license)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
 [![Latest Stable Version](https://poser.pugx.org/lfelin/laravel-tracetoslack/v/stable)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+[![Total Downloads](https://poser.pugx.org/lfelin/laravel-tracetoslack/downloads)](https://packagist.org/packages/lfelin/laravel-tracetoslack)
+___
+
+#### **For Laravel 5, use the** [1.0 branch](https://github.com/LFelin/laravel-tracetoslack/)
 ___
 ## About
 Trace to slack is a simple package for laravel to notify the errors of your application in slack https://slack.com/
@@ -14,7 +18,7 @@ Pull this package in through Composer.
 
     {
         "require": {
-            "lfelin/laravel-tracetoslack": "0.*"
+            "lfelin/laravel-tracetoslack": "^4.2"
         }
     }
 
@@ -22,38 +26,56 @@ Pull this package in through Composer.
 
 Dump your autoload
 ```
-composer dump-autoload -o
+composer dump-autoload
 ```
 
 
 ### Laravel 5.* Integration
 
-Add the service provider to your `config/app.php` file:
+Add the service provider to your `app/config/app.php` file:
 
 ```php
 
     'providers'     => array(
 
         //...
-        Lfelin\TraceToSlack\TraceToSlackServiceProvider::class,
+        Lfelin\TraceToSlack\TraceToSlackServiceProvider,
 
     ),
 
 ```
 
-In your `app/Exceptions/Handler.php` file:
+In your `app/start/global.php` file:
 
-Replace
+Add
 
 ```php
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+<?php
+use Lfelin\TraceToSlack\Facades\TraceToSlack;
 ```
 
 
-**by**
+**and add** ```TraceToSlack::trace($exception); to App:error```
 
 ```php
-use Lfelin\TraceToSlack\Handler as ExceptionHandler;
+/*
+|--------------------------------------------------------------------------
+| Application Error Handler
+|--------------------------------------------------------------------------
+|
+| Here you may handle any errors that occur in your application, including
+| logging them or displaying custom views for specific errors. You may
+| even register several error handlers to handle different types of
+| exceptions. If nothing is returned, the default error view is
+| shown, which includes a detailed stack trace during debug.
+|
+*/
+
+App::error(function(Exception $exception, $code)
+{
+    TraceToSlack::trace($exception);
+	Log::error($exception);
+});
 ```
 
 ## Configuration
@@ -61,10 +83,10 @@ use Lfelin\TraceToSlack\Handler as ExceptionHandler;
 Publish configuration
 
 ```
-php artisan vendor:publish
+php artisan config:publish lfelin/laravel-tracetoslack
 ```
 
-In your `config/tracetoslack.php` file configure the parameters. The parameter webhook_url is required :
+In your `app/config/packages/lfelin/laravel-tracetoslack/tracetoslack.php` file configure the parameters. The parameter **webhook_url** is required :
 
 ```php
 
@@ -97,7 +119,7 @@ In your `config/tracetoslack.php` file configure the parameters. The parameter w
          | Username
          |--------------------------------------------------------------------------
          | [Optional]
-         | Default: Jhon Bot
+         | Default: John Bot
          |
          */
 
@@ -150,4 +172,7 @@ Create a new webhook : https://my.slack.com/services/new/incoming-webhook/
 Documentation : https://api.slack.com/custom-integrations
 
 ## Example on slack
-![example](https://cloud.githubusercontent.com/assets/271214/16535835/0f837698-3feb-11e6-92b2-e0bdf74b580a.png)
+![example](https://cloud.githubusercontent.com/assets/271214/16838122/e547de1e-49c7-11e6-96b4-9639420fe5af.png)
+
+## Suggestions and issues
+Use [github issues](https://github.com/LFelin/laravel-tracetoslack/issues/new) to suggest improvements or reassembling your problems
