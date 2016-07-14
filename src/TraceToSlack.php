@@ -88,7 +88,7 @@ class TraceToSlack
 
 
     public function constructPayload(){
-        $array_config = ['username'      => 'Jhon Bot',
+        $array_config = ['username'      => 'John Bot',
                          'icon_emoji'    => ':bug:',
                          'icon_url'      => null,
                          'other_channel' => null];

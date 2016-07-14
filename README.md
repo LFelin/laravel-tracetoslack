@@ -97,7 +97,7 @@ In your `config/tracetoslack.php` file configure the parameters. The parameter w
          | Username
          |--------------------------------------------------------------------------
          | [Optional]
-         | Default: Jhon Bot
+         | Default: John Bot
          |
          */
 
