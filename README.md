@@ -24,13 +24,18 @@ Pull this package in through Composer.
 
 ```
 
+Composer update [_Minimum stability is dev_]
+```
+composer update lfelin/laravel-tracetoslack
+```
+
 Dump your autoload
 ```
 composer dump-autoload
 ```
 
 
-### Laravel 5.* Integration
+### Laravel 4.2 Integration
 
 Add the service provider to your `app/config/app.php` file:
 
@@ -39,7 +44,7 @@ Add the service provider to your `app/config/app.php` file:
     'providers'     => array(
 
         //...
-        Lfelin\TraceToSlack\TraceToSlackServiceProvider,
+        'Lfelin\TraceToSlack\TraceToSlackServiceProvider',
 
     ),
 
